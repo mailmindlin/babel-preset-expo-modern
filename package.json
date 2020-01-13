@@ -1,0 +1,53 @@
+{
+  "name": "babel-preset-expo-modern",
+  "version": "0.0.1",
+  "description": "Babel preset for Expo that won't transpile all the way back to ES5",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "lazy-exports-blacklist.js",
+    "memo.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mailmindlin/babel-preset-expo-modern.git"
+  },
+  "keywords": [
+    "babel",
+    "babel-preset",
+    "expo",
+    "expo-web",
+    "react-native",
+    "react-native-web",
+    "metro",
+    "webpack"
+  ],
+  "author": "mailmindlin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mailmindlin/babel-preset-expo-modern/issues"
+  },
+  "homepage": "https://github.com/mailmindlin/babel-preset-expo-modern#readme",
+  "dependencies": {
+    "find-root": "^1.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-decorators": "^7.7.4",
+    "@babel/plugin-proposal-export-default-from": "^7.7.4",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.7.4",
+    "@babel/plugin-proposal-optional-catch-binding": "^7.7.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.7.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.7.4",
+    "@babel/plugin-syntax-export-default-from": "^7.7.4",
+    "@babel/plugin-syntax-flow": "^7.7.4",
+    "@babel/plugin-transform-flow-strip-types": "^7.7.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.7.5",
+    "@babel/plugin-transform-react-jsx": "^7.7.4",
+    "@babel/plugin-transform-react-jsx-source": "^7.7.4",
+    "@babel/plugin-transform-typescript": "^7.7.4",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-plugin-react-native-web": "^0.11.7"
+  }
+}
