@@ -1,6 +1,6 @@
-import findRoot from 'find-root';
-import memo from './memo';
-import lazyImportsBlacklist from './lazy-exports-blacklist';
+const findRoot = require('find-root');
+const memo = require('./memo');
+const lazyImportsBlacklist = require('./lazy-exports-blacklist');
 
 /** @param {string} fileName */
 function isTypeScriptSource(fileName) {
