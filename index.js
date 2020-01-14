@@ -1,6 +1,6 @@
 const findRoot = require('find-root');
 const memo = require('./memo');
-const lazyImportsBlacklist = require('./lazy-exports-blacklist');
+const lazyImports = require('./lazy-imports');
 
 /** @param {string} fileName */
 function isTypeScriptSource(fileName) {
@@ -69,34 +69,23 @@ module.exports = function (api, options = {}) {
 	const disableImportExportTransform = platformOptions.disableImportExportTransform;
 	const lazyImportsOption = options && options.lazyImports;
 
-	const lazyImportExportTransform = (lazyImportsOption === true)
-		? importModuleSpecifier => {
-			// Do not lazy-initialize packages that are local imports (similar to `lazy: true`
-			// behavior) or are in the blacklist.
-			return !(
-				importModuleSpecifier.includes('./') ||
-				lazyImportsBlacklist.has(importModuleSpecifier)
-			);
-		}
-		: // Pass the option directly to `metro-react-native-babel-preset`, which in turn
-		// passes it to `babel-plugin-transform-modules-commonjs`
-		lazyImportsOption;
-
 	const plugins = [...defaultPlugins];
 
 	if (isWeb)
 		plugins.push(pluginReactNativeWeb());
 
 	if (!disableImportExportTransform) {
+		console.log('lioet:', lazyImportExportTransform);
 		plugins.push(
 			pluginExportDefaultFrom(),
 			[pluginTransformCommonjs(), {
 				strict: false,
 				strictMode: false, // prevent "use strict" injections
-				lazy:
-					options && lazyImportExportTransform != null
-						? options.lazyImportExportTransform
-						: importSpecifier => lazyImports.has(importSpecifier),
+				lazy: (lazyImportsOption === true)
+					? lazyImports.filterBlacklist
+					: (lazyImportsOption == null)
+						? lazyImports.filterWhitelist
+						: lazyImportsOption,
 				allowTopLevelThis: true, // dont rewrite global `this` -> `undefined`
 			}],
 		)

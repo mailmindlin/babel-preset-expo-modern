@@ -5,7 +5,7 @@ const unset = Symbol();
  * @param {() => T} callback 
  * @returns {() => T}
  */
-export default function memo(callback) {
+module.exports = function memo(callback) {
 	let result = unset;
 	return () => {
 		if (result === unset)

@@ -1,11 +1,11 @@
 {
   "name": "babel-preset-expo-modern",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Babel preset for Expo that won't transpile all the way back to ES5",
   "main": "index.js",
   "files": [
     "index.js",
-    "lazy-exports-blacklist.js",
+    "lazy-imports.js",
     "memo.js"
   ],
   "scripts": {
