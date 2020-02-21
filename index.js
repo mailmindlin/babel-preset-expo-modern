@@ -75,7 +75,6 @@ module.exports = function (api, options = {}) {
 		plugins.push(pluginReactNativeWeb());
 
 	if (!disableImportExportTransform) {
-		console.log('lioet:', lazyImportExportTransform);
 		plugins.push(
 			pluginExportDefaultFrom(),
 			[pluginTransformCommonjs(), {
