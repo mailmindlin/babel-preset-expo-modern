@@ -52,6 +52,7 @@ const defaultPlugins = [
 
 const pluginReactNativeWeb = memo(() => [require('babel-plugin-react-native-web')]);
 const pluginExportDefaultFrom = memo(() => [require('@babel/plugin-proposal-export-default-from')]);
+const pluginExportNamespaceFrom = memo(() => [require('@babel/plugin-proposal-export-namespace-from')]);
 // Note: config not memoized because it's preset-config-dependent
 const pluginTransformCommonjs = memo(() => require('@babel/plugin-transform-modules-commonjs'));
 
@@ -77,6 +78,7 @@ module.exports = function (api, options = {}) {
 	if (!disableImportExportTransform) {
 		plugins.push(
 			pluginExportDefaultFrom(),
+			pluginExportNamespaceFrom(),
 			[pluginTransformCommonjs(), {
 				strict: false,
 				strictMode: false, // prevent "use strict" injections
