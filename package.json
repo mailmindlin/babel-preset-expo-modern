@@ -31,6 +31,9 @@
     "url": "https://github.com/mailmindlin/babel-preset-expo-modern/issues"
   },
   "homepage": "https://github.com/mailmindlin/babel-preset-expo-modern#readme",
+  "peerDependencies": {
+    "@babel/core": "*"
+  },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/plugin-proposal-decorators": "^7.7.4",
@@ -41,14 +44,18 @@
     "@babel/plugin-proposal-optional-chaining": "^7.7.5",
     "@babel/plugin-syntax-dynamic-import": "^7.7.4",
     "@babel/plugin-syntax-export-default-from": "^7.7.4",
+    "@babel/plugin-syntax-export-namespace-from": "^7.8.3",
     "@babel/plugin-syntax-flow": "^7.7.4",
     "@babel/plugin-transform-flow-strip-types": "^7.7.4",
     "@babel/plugin-transform-modules-commonjs": "^7.7.5",
     "@babel/plugin-transform-react-jsx": "^7.7.4",
     "@babel/plugin-transform-react-jsx-source": "^7.7.4",
     "@babel/plugin-transform-typescript": "^7.7.4",
-    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-plugin-module-resolver": ">=3.2.0 >=4.0.0",
     "babel-plugin-react-native-web": "^0.11.7",
     "find-root": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.7"
   }
 }
